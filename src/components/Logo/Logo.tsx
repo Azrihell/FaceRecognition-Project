@@ -8,7 +8,7 @@ export const Logo = () => {
   return (
     <div className='ma4 mt0'>
       <Tilt className='Tilt br2'>
-        <div className='Tilt-inner'><img style={{height: '300px', width: '250px'}} alt='logo' src= {headbrainlogo}></img></div>
+        <div className='Tilt-inner'><img style={{height: '150px', width: '125px'}} alt='logo' src= {headbrainlogo}></img></div>
       </Tilt>
     </div>
   )
