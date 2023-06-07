@@ -1,14 +1,14 @@
 import React from 'react';
 import Tilt from 'react-parallax-tilt'
 import './Logo.css'
+import headbrainlogo from './headbrainlogo.png'
 
 
 export const Logo = () => {
   return (
     <div className='ma4 mt0'>
-      <Tilt className='Tilt br2 shadow-2'>
-        <div className='Tilt-inner'></div>
-        <div style={{ height: '300px', backgroundColor: 'black' }}></div>
+      <Tilt className='Tilt br2'>
+        <div className='Tilt-inner'><img style={{height: '300px', width: '250px'}} alt='logo' src= {headbrainlogo}></img></div>
       </Tilt>
     </div>
   );
