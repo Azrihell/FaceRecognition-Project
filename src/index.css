@@ -4,3 +4,7 @@ body {
   font-family: 'Courier New', Courier, monospace;
     background: linear-gradient(90deg, rgb(250, 162, 219) 50%, rgb(157, 226, 255));
 }
+
+button {
+  cursor: pointer;
+}

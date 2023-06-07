@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import Tilt from 'react-parallax-tilt'
 import './Logo.css'
 import headbrainlogo from './headbrainlogo.png'
@@ -11,5 +11,5 @@ export const Logo = () => {
         <div className='Tilt-inner'><img style={{height: '300px', width: '250px'}} alt='logo' src= {headbrainlogo}></img></div>
       </Tilt>
     </div>
-  );
-};
+  )
+}
