@@ -5,6 +5,7 @@ import { Navigation } from './components/Nav/Navigation'
 import { Logo } from './components/Logo/Logo'
 import { ImageLinkForm } from './components/ImageLinkForm/ImageLinkForm'
 import { Rank } from './components/Rank/Rank'
+import { FaceRecognition } from './components/FaceRecognition/FaceRecognition'
 
 export const App = () => {
   const [input, setInput] = React.useState<string>('')
@@ -60,7 +61,7 @@ export const App = () => {
       <Logo />
       <Rank />
       <ImageLinkForm onInputChange={setInput} onButtonSubmit={onButtonSubmit} />
-      {/* <FaceRecognition /> */}
+      <FaceRecognition />
 
     </div>
   )
