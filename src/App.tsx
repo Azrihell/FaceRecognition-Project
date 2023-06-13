@@ -7,15 +7,27 @@ import { ImageLinkForm } from './components/ImageLinkForm/ImageLinkForm'
 import { Rank } from './components/Rank/Rank'
 
 export const App = () => {
+  const [input, setInput] = React.useState<string>('')
+  const [toggle, setToggle] = React.useState<boolean>(true)
+
+  React.useEffect(() => {
+    console.log(input)
+  }, [toggle,input]);
+
+  const onButtonSubmit = () => {
+    console.log('clicked hehe')
+    setToggle(!toggle)
+  }
+
   return (
-   
+
     <div className='App'>
-      <ParticlesBg type="square" num ={15} bg={true} />
+      <ParticlesBg type="square" num={15} bg={true} />
       <Navigation />
       <Logo />
       <Rank />
-      <ImageLinkForm />
-    {/* <FaceRecognition /> */}
+      <ImageLinkForm onInputChange={setInput} onButtonSubmit={onButtonSubmit} />
+      {/* <FaceRecognition /> */}
 
     </div>
   )
