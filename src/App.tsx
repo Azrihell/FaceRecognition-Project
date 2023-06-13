@@ -9,16 +9,13 @@ import { FaceRecognition } from './components/FaceRecognition/FaceRecognition'
 
 export const App = () => {
   const [input, setInput] = React.useState<string>('')
+  const [imageUrl, setImageUrl] = React.useState<string>('')
 
-  React.useEffect(() => {
-    console.log(input)
-  }, [input]);
+  React.useEffect(() => { setInput }, [input]);
 
   const onButtonSubmit = () => {
-    console.log('clicked hehe')
 
-    // URL of image to use. Change this to your image.
-    const IMAGE_URL = 'https://samples.clarifai.com/metro-north.jpg';
+    setImageUrl(input)
 
     const raw = JSON.stringify({
       "user_app_id": {
@@ -29,7 +26,7 @@ export const App = () => {
         {
           "data": {
             "image": {
-              "url": IMAGE_URL
+              "url": imageUrl
             }
           }
         }
@@ -61,9 +58,8 @@ export const App = () => {
       <Logo />
       <Rank />
       <ImageLinkForm onInputChange={setInput} onButtonSubmit={onButtonSubmit} />
-      <FaceRecognition />
+      <FaceRecognition imageUrl={input} />
 
     </div>
   )
 }
-
