@@ -11,7 +11,9 @@ export const App = () => {
   const [input, setInput] = React.useState<string>('')
   const [imageUrl, setImageUrl] = React.useState<string>('')
 
-  React.useEffect(() => { setInput }, [input]);
+  React.useEffect(() => {
+    console.log("NEW IMAGE ADDED")
+  }, [input]);
 
   const onButtonSubmit = () => {
 
