@@ -9,35 +9,34 @@ import { FaceRecognition } from './components/FaceRecognition/FaceRecognition'
 
 export const App = () => {
   const [input, setInput] = React.useState<string>('')
-  const [imageUrl, setImageUrl] = React.useState<string>('')
-  const [box, setBox] = React.useState('')
+  const [box, setBox] = React.useState<any>({})
 
-  const calcFaceLocation = (data) => {
-    const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box
-    const image = document.getElementById('inputimage')
-    const width = Number(image.width)
-    const height = Number(image.height)
-    
-    return {
-      leftCol: clarifaiFace.left_col * width,
-      topRow: clarifaiFace.top_row * height,
-      rightCol: width - (clarifaiFace.rightCol * width),
-      bottomRow: height - (clarifaiFace.bottom_row * height)
+  const calcFaceLocation = (data: any) => {
+    // Always check to make sure data is a valid object
+    if (data) {
+
+      console.group("data", data.outputs)
+      const clarifaiFace = data?.outputs[0]?.data?.regions[0]?.region_info?.bounding_box
+
+      // verify that clarifaiFace resolved correctly
+      if (clarifaiFace) {
+        console.log("clarifaiFace", clarifaiFace)
+        const image: HTMLElement | null = document.getElementById('inputimage')
+        const width = Number(image?.offsetWidth) || 0
+        const height = Number(image?.offsetHeight) || 0
+
+        setBox({
+          border: "1px solid red",
+          left: `${(clarifaiFace.left_col * width).toFixed(0)}px`,
+          top: `${(clarifaiFace.top_row * height).toFixed(0)}px`,
+          right: `${(width - (clarifaiFace.right_col * width)).toFixed(0)}px`,
+          bottom: `${(height - (clarifaiFace.bottom_row * height)).toFixed(0)}px`
+        })
+      }
     }
   }
 
-  const displayFaceBox = (box) => {
-    ({box: setBox})
-  }
-
-  React.useEffect(() => {
-    console.log()
-  }, [input]);
-
-  const onButtonSubmit = () => {
-
-    setImageUrl(input)
-
+  const onButtonSubmit = async () => {
     const raw = JSON.stringify({
       "user_app_id": {
         "user_id": "clarifai",
@@ -47,7 +46,7 @@ export const App = () => {
         {
           "data": {
             "image": {
-              "url": imageUrl
+              "url": input
             }
           }
         }
@@ -64,11 +63,10 @@ export const App = () => {
       body: raw
     };
 
-    fetch(`https://api.clarifai.com/v2/models/face-detection/versions/b8fa05a04e0649a1a9d3186b246a59b3/outputs`, requestOptions)
-      .then(response => displayFaceBox(calcFaceLocation(response.text)))
-      // .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error))
+
+    const response = await fetch(`https://api.clarifai.com/v2/models/face-detection/versions/b8fa05a04e0649a1a9d3186b246a59b3/outputs`, requestOptions)
+    const result = await response.text()
+    calcFaceLocation(JSON.parse(result))
   }
 
 
@@ -80,7 +78,7 @@ export const App = () => {
       <Logo />
       <Rank />
       <ImageLinkForm onInputChange={setInput} onButtonSubmit={onButtonSubmit} />
-      <FaceRecognition imageUrl={input} />
+      <FaceRecognition box={box} imageUrl={input} />
 
     </div>
   )
