@@ -2,6 +2,7 @@ import React from 'react'
 import './App.css'
 import ParticlesBg from 'particles-bg'
 import { Navigation } from './components/Nav/Navigation'
+import { Signin } from './components/Signin/Signin'
 import { Logo } from './components/Logo/Logo'
 import { ImageLinkForm } from './components/ImageLinkForm/ImageLinkForm'
 import { Rank } from './components/Rank/Rank'
@@ -75,6 +76,7 @@ export const App = () => {
     <div className='App'>
       <ParticlesBg type="square" num={15} bg={true} />
       <Navigation />
+
       <Logo />
       <Rank />
       <ImageLinkForm onInputChange={setInput} onButtonSubmit={onButtonSubmit} />
