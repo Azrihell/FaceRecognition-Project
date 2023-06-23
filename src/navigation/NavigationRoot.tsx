@@ -23,6 +23,7 @@ import { AuthLogoutScreen } from '../routing-auth/auth-screen-logout/AuthLogoutS
 import { PortalOutlet } from '../routing-portal/portal-outlet/PortalOutlet'
 import { PortalDashboardScreen } from '../routing-portal/portal-screen-dashboard/PortalDashboardScreen'
 import { PortalSettingScreen } from '../routing-portal/portal-screen-settings/PortalSettingsScreen'
+import { AuthRegisterScreen } from "../routing-auth/auth-screen-register/AuthRegisterScreen"
 
 
 
@@ -43,8 +44,8 @@ export const NavigationRoot = () => {
           {/* These routes handle authentication */}
           <Route element={<AuthOutlet />}>
             <Route path='login' element={<AuthLoginScreen />} />
-            <Route path='logout' element={<AuthLogoutScreen />} />
-            <Route path='register' element={<AuthLogoutScreen />} />
+            <Route path='logout' element={<AuthLoginScreen />} />
+            <Route path='register' element={<AuthRegisterScreen />} />
           </Route>
           <Route path={"/*"} element={<AppErrorScreen />} />
         </Routes>
