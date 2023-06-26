@@ -51,7 +51,7 @@ export const NavigationRoot = () => {
           <Route element={<AuthOutlet />}>
             <Route path='login' element={<AuthLoginScreen setAuthenticated={handleLogin} />} />
             <Route path='logout' element={<AuthLoginScreen setAuthenticated={handleLogin} />} />
-            <Route path='register' element={<AuthRegisterScreen setAuthenticated={handleLogin}/>} />
+            <Route path='register' element={<AuthRegisterScreen setAuthenticated={handleLogin} />} />
           </Route>
           <Route path={"/*"} element={<AppErrorScreen />} />
         </Routes>
@@ -61,6 +61,7 @@ export const NavigationRoot = () => {
           <Route element={<PortalOutlet />}>
             <Route index element={<PortalDashboardScreen />} />
             <Route path='settings' element={<PortalSettingScreen />} />
+            <Route path={"home"} element={<AppHomeScreen />} />
             <Route path={"/*"} element={<AppErrorScreen />} />
           </Route>
         </Routes>
