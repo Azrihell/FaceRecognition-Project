@@ -1,12 +1,12 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom"
 
-export const Signin = ({setAuthenticated} : { setAuthenticated: any }) => {
+export const Signin = ({ setAuthenticated }: { setAuthenticated: any }) => {
   const navigate = useNavigate()
 
   return (
     
-      <div className="sans-serif w-90 white mw6 center relative cover bg-top mt2">
+      <div className="sans-serif w-90 white mw6 center relative cover bg-top mt7">
         <div id="overlay" className="absolute absolute--fill bg-navy o-70 z-unset"></div>
         <div className="relative pa4 pa5-m">
           <h1 className="serif tracked ma0 mb4 pv3">Sign In</h1>
@@ -28,6 +28,5 @@ export const Signin = ({setAuthenticated} : { setAuthenticated: any }) => {
           </div>
         </div>
       </div>
-
   )
 }
