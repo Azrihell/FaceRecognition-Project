@@ -8,7 +8,7 @@ export const PortalDashboardScreen = () => {
 
   return (
     <div>
-      Portal Dashboard
+      RAWR
     </div>
   )
 }

@@ -74,8 +74,8 @@ export const App = () => {
 
     <div className='App'>
       <ParticlesBg type="square" num={15} bg={true} />
-      <Navigation />
-      <Logo />
+      {/* <Navigation /> */}
+      {/* <Logo /> */}
       <Rank />
       <ImageLinkForm onInputChange={setInput} onButtonSubmit={onButtonSubmit} />
       <FaceRecognition box={box} imageUrl={input} />

@@ -14,7 +14,7 @@ import { AppErrorScreen } from '../routing-app/app-screen-error/AppErrorScreen'
 // =================================================================================================
 import { AuthOutlet } from '../routing-auth/auth-outlet/AuthOutlet'
 import { AuthLoginScreen } from '../routing-auth/auth-screen-login/AuthLoginScreen'
-import { AuthLogoutScreen } from '../routing-auth/auth-screen-logout/AuthLogoutScreen'
+
 
 
 // Application Navigator || Portal Imports
@@ -51,7 +51,7 @@ export const NavigationRoot = () => {
           <Route element={<AuthOutlet />}>
             <Route path='login' element={<AuthLoginScreen setAuthenticated={handleLogin} />} />
             <Route path='logout' element={<AuthLoginScreen setAuthenticated={handleLogin} />} />
-            <Route path='register' element={<AuthRegisterScreen />} />
+            <Route path='register' element={<AuthRegisterScreen setAuthenticated={handleLogin}/>} />
           </Route>
           <Route path={"/*"} element={<AppErrorScreen />} />
         </Routes>

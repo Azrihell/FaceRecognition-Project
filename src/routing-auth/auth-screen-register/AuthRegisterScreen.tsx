@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 // Application Screen || Define Exports
 // =================================================================================================
 // =================================================================================================
-export const AuthRegisterScreen = () => {
+export const AuthRegisterScreen = ({ setAuthenticated }: { setAuthenticated: any }) => {
   const navigate = useNavigate()
 
   return (
@@ -30,7 +30,7 @@ export const AuthRegisterScreen = () => {
             <input type="password" name="password" className="input-reset db w-100 mw-100 white b pv2 ph3 bg-white-30 hover-bg-white-70 hover-gray outline-0 bn br-pill" />
           </div>
           <div>
-            <button onClick={() => navigate('/')} className="input-reset db w-100 light-gray f6 b ttu tracked pv3 ph3 pointer bg-dark-blue hover-bg-blue bn br-pill">Register</button>
+            <button onClick={() => setAuthenticated(true)} className="input-reset db w-100 light-gray f6 b ttu tracked pv3 ph3 pointer bg-dark-blue hover-bg-blue bn br-pill">Register</button>
           </div>
         </form>
         <div className="tc b f6 mt4 o-70 glow pa2 i">

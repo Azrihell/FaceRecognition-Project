@@ -1,5 +1,6 @@
 import React from "react"
 import { Outlet } from "react-router"
+import { Navigation } from "../../components/Nav/Navigation"
 
 // Application Screen || Define Exports
 // =================================================================================================
@@ -8,7 +9,7 @@ export const PortalOutlet = () => {
 
   return (
     <div>
-      --- Portal Navbar goes here ---
+      <Navigation/>
       <Outlet />
     </div>
   )
