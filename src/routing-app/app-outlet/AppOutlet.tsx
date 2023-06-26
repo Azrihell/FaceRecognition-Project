@@ -8,7 +8,6 @@ export const AppOutlet = () => {
 
   return (
     <div>
-      --- App Navbar goes here ---
       <Outlet />
     </div>
   )

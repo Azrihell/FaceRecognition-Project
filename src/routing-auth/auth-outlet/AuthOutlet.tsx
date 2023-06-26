@@ -9,7 +9,6 @@ export const AuthOutlet = () => {
 
   return (
     <div>
-      <Navigation />
       <Outlet />
     </div>
   )

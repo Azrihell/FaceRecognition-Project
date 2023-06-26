@@ -5,12 +5,10 @@ import { Signin } from "../../components/Signin/Signin"
 // Application Screen || Define Exports
 // =================================================================================================
 // =================================================================================================
-export const AuthLoginScreen = () => {
-  
+export const AuthLoginScreen = ({ setAuthenticated }: { setAuthenticated: any }) => {
+
   return (
-    <div>
-      
-      <Signin />
-    </div>
+      <Signin setAuthenticated={setAuthenticated} />
+
   )
 }

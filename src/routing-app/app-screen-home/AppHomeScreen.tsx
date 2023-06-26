@@ -9,8 +9,6 @@ export const AppHomeScreen = () => {
   const navigate = useNavigate()
   return (
     <div>
-      App home Screen
-
       <App />
     </div>
   )

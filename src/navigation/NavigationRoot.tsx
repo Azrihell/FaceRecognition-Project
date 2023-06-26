@@ -1,5 +1,5 @@
 import React from "react"
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes, useNavigate } from "react-router-dom"
 
 // Application Navigator || App Imports
 // =================================================================================================
@@ -31,7 +31,13 @@ import { AuthRegisterScreen } from "../routing-auth/auth-screen-register/AuthReg
 // =================================================================================================
 // =================================================================================================
 export const NavigationRoot = () => {
+  const navigate = useNavigate()
   const [isAuthenticated, setAuthenticated] = React.useState<boolean>(false)
+
+  const handleLogin = () => {
+    navigate('/')
+    setAuthenticated(true)
+  }
 
   return (
     <div className="wrapper">
@@ -43,8 +49,8 @@ export const NavigationRoot = () => {
           </Route>
           {/* These routes handle authentication */}
           <Route element={<AuthOutlet />}>
-            <Route path='login' element={<AuthLoginScreen />} />
-            <Route path='logout' element={<AuthLoginScreen />} />
+            <Route path='login' element={<AuthLoginScreen setAuthenticated={handleLogin} />} />
+            <Route path='logout' element={<AuthLoginScreen setAuthenticated={handleLogin} />} />
             <Route path='register' element={<AuthRegisterScreen />} />
           </Route>
           <Route path={"/*"} element={<AppErrorScreen />} />
