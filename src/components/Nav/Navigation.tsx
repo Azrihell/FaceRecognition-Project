@@ -11,7 +11,7 @@ export const Navigation = ({ setAuthenticated }: { setAuthenticated: any }) => {
     <button>Current Page</button>
     <div className="dropdown-content">
     <Link to='/'>Dashboard</Link>
-    <Link to='home'>Face Detect!</Link>
+    <Link to='home'>Face Detect</Link>
     <Link to='logout' onClick={() => setAuthenticated(false)} >Log Out</Link>
     </div>
   </div>
