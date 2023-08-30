@@ -9,7 +9,7 @@ export const AppOutlet = () => {
 
   return (
     <div>
-      <Navigation/>
+      {/* <Navigation/> */}
       <Outlet />
     </div>
   )
